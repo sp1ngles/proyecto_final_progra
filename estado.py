@@ -13,86 +13,47 @@ def calcular_estado_inicial():
     """
     empleados = 4
     costo_emp = 2000
-
     return {
-        # ---- Indicadores Financieros y Operativos Principales ----
+        # Indicadores financieros y operativos
         "Caja disponible": 50000,
         "Inventario": 0,
         "Pedidos por atender": 0,
         "Unidades vendidas": 0,
-        "Insumos disponibles": 100000,
+        "Insumos disponibles": 100,
         "Cantidad de empleados": empleados,
         "Costo por empleado": costo_emp,
         "Sueldos por pagar": empleados * costo_emp,
         "Deuda pendiente": 20000,
         "Reputacion del mercado": "Nivel 3",
         "Multas e indemnizaciones": 0,
-        "Maquinas (total/activas/dañadas)": "5/5/0",
-        "Precio de venta": 4.5,
-        "Ventas del turno anterior": 0,
+        "Maquinas (total/activas/dañadas)": "7/5/2",
 
+        # flags de cartas del caos
+        "BoicotClientes": False,
+        "ErrorEtiquetado": False,
+        "PlagaActiva": False,
+        "DuracionBoicot": 0,
+        "DuracionError": 0,
+        "DuracionPlaga": 0,
 
-        # ---- Banderas de estado y prohibiciones ----
+        # Banderas de prohibicion y seguro
         "Prohibir Produccion": False,
-        "Prohibir Compras Nacionales": False,
+        "Prohibir Compras": False,
         "Prohibir Importaciones": False,
-        "Prohibir Contratacion": False,
         "Fondo emergencia": False,
-        "EcommerceActivo": False,
-        "ProduccionRealizada": False,
-        # ----- Nuevas Cartas agregadas a estados ----
-        "SePuedeVender": False,
-        "VirusInformatico": False,
-        "SinVisibilidad": False,
-        # ---- Contadores de efectos temporales (Acciones) ----
-        "TurnosProduccionExtra": 0,
-        "MejoraProcesoPorcentaje": 0.0,
-        "TurnosProteccionMantenimiento": 0,
-        "TurnosProteccionClima": 0,
-        "TurnosProteccionSeguridad": 0,
-        "TurnosIncentivosActivos": 0,
-        "SubidasSueldoContador": 0,
-        "TurnosDemandaExtraMarketing": 0,
-        "VentasExtraMarketing": 0.0,
-        "TurnosVentasExtraMarketing": 0,
-        "TurnosBranding": 0,
-        "ReputacionOriginalBranding": "",
-        "TurnosProteccionDemanda": 0,
-        "TurnosProteccionReputacion": 0,
-        "TurnosProteccionEcommerce": 0,
-        "DemandaExtraCoBranding": [0, 0],
-        "VentasExtraCoBranding": 0.0,
-        "TurnosVentasExtraCoBranding": 0,
-        "DescuentoCompraNacional": 1.0,
-        "CreditoConcedido": False,
-        "CuentasPorPagar": [],
-        "TurnosVentaExcedentes": 0,
-        "TurnosCalidadPremium": 0,
 
-        # ---- Contadores de efectos temporales (Cartas del Caos) ----
-        "TurnosSinVisibilidad": 0,
-        "NoVenderEsteTurno": False,
-        "ReduccionDemandaProductoRetirado": 0,
-        "ReduccionVentasBoicot": 0,
-        "TurnosProduccionPlaga": 0,
-        "TurnosSinVentasBloqueo": 0,
-        "ReduccionVentasCompetidor": 0,
-        "ReduccionVentas75": False,
-        "AumentoCostosCrisis": 0,
-        "TurnosSinOperacionesHuelgaNacional": 0,
-        "TurnosEmpleadoAccidentado": 0,
-        "TurnosReduccionVentasEmpaque": 0,
-        "TurnosSinProduccionDerrame": 0,
-    #--------------------------------------------------
-        "TurnosProhibirContratacion": 0,
-        "TurnosSinImportaciones": 0,
-        "TurnosSinComprasNacionales": 0,
-        "TurnosReduccionDemandaProductoRetirado": 0,
-    #--- Indicadores Carta 3 ---
-        "True Inventario":0,
-        "True Insumos disponibles":0,
-    #--- Indicador Carta 4 ---
-        "IncendioAlmacen": False,
+        # Contadores y flags temporales
+        "VirusInformatico": False,
+        "HuelgaActiva": False,
+        "ProductoRetirado": False,
+        "TurnosProduccionExtra": 0,
+        "DemandaExtraTemporal": 0,
+        "EmpleadosTemporales": 0,
+        "MejoraProceso": False,
+        "BrandingActivo": False,
+        "MantenimientoHecho": False,
+        "EcommerceActivo": False,
+        "InventarioMesAnterior": 0
     #--------------------------------------------------
     }
 
