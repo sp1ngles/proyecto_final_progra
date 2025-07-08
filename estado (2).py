@@ -43,6 +43,7 @@ def calcular_estado_inicial():
         "BloqueoHuelgaTurnos": 0,                            #NUEVO
         "Prohibir Contrataciones": False,                    #NUEVO
         "BloqueoContratacionTurnos": 0,                      #NUEVO
+        "Almacen": 5,                                        #NUEVO
         # rr.hh
         "IncentivosActivos": False,
         "DuracionIncentivos": 0,

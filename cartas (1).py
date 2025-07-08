@@ -247,6 +247,7 @@ def aplicar_carta(numero, estado):
     # Duración: 3 turnos
 
     elif numero == 26:
+        estado["unidades vendidas"] = estado["unidades vendidas"] - estado["unidades vendidas"] * 0.4
         return estado
 
     # Carta 27: Robo interno
@@ -264,6 +265,12 @@ def aplicar_carta(numero, estado):
     #   - Reputacion del mercado −2 nivel.
     #   - Ventas de este mes se reducen en un 75%
     elif numero == 29:
+        nivel_actual = int(estado["Reputacion del mercado"].split(" ")[1])
+        nuevo_nivel = max(0, nivel_actual - 2)
+
+        estado["Reputacion del mercado"] = f'Nivel {nuevo_nivel}'
+        estado["unidades vendidas"] = estado["unidades vendidas"] - estado["unidades vendidas"] * 0.75
+
         return estado
 
     # Carta 30: Huelga nacional
@@ -271,6 +278,9 @@ def aplicar_carta(numero, estado):
     #   - Debemos pagar 10,000 por almacén
     # Duración: 3 turnos
     elif numero == 30:
+        estado["Prohibir ventas"] = True
+        estado["Prohibir produccion"] = True
+        estado["Caja disponible"] = estado["Caja disponible"] - (estado["Caja disponible"] * estado["Almacen"])
         return estado
 
     # Carta 31: Rechazo de exportacion
@@ -289,6 +299,12 @@ def aplicar_carta(numero, estado):
     #   - No se venden productos este mes:
     #   - reputación baja 2 niveles
     elif numero == 33:
+        estado["Prohibir Ventas"] = True
+        nivel_actual = int(estado["Reputacion del mercado"].split(" ")[1])
+        nuevo_nivel = max(0, nivel_actual - 2)
+
+        estado["Reputacion del mercado"] = f'Nivel {nuevo_nivel}'
+
         return estado
 
     # Carta 34: Mal diseño del empaque
@@ -296,6 +312,11 @@ def aplicar_carta(numero, estado):
     #   - reputación baja 2 niveles
     # Duración: 2 turnos
     elif numero == 34:
+        estado["unidades vendidas"] = estado["unidades vendidas"] - estado["unidades vendidas"] * 0.25
+        nivel_actual = int(estado["Reputacion del mercado"].split(" ")[1])
+        nuevo_nivel = max(0, nivel_actual - 2)
+
+        estado["Reputacion del mercado"] = f'Nivel {nuevo_nivel}'
         return estado
 
     # Carta 35: Cliente se intoxica
